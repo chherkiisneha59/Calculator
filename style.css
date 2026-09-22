@@ -1,8 +1,43 @@
+:root {
+    --bg-gradient: linear-gradient(45deg, #0a0a0a, #3a4452);
+    --calculator-bg: transparent;
+    --calculator-border: #717377;
+    --calculator-shadow: 0px 3px 15px rgba(113, 225, 119, 0.5);
+    --text-color: #ffffff;
+    --input-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
+    --btn-bg: transparent;
+    --btn-color: #ffffff;
+    --btn-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+    --operator-color: #33d668;
+    --equal-bg: orangered;
+    --toggle-bg: rgba(255, 255, 255, 0.15);
+    --toggle-border: rgba(255, 255, 255, 0.2);
+    --toggle-text: #ffffff;
+}
+
+body.light-mode {
+    --bg-gradient: linear-gradient(135deg, #e2e8f0, #cfdef3);
+    --calculator-bg: #ffffff;
+    --calculator-border: #cbd5e1;
+    --calculator-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+    --text-color: #1e293b;
+    --input-shadow: inset 0px 2px 6px rgba(0, 0, 0, 0.08);
+    --btn-bg: #f8fafc;
+    --btn-color: #1e293b;
+    --btn-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.8);
+    --operator-color: #059669;
+    --equal-bg: #ff5722;
+    --toggle-bg: #ffffff;
+    --toggle-border: #cbd5e1;
+    --toggle-text: #1e293b;
+}
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body{
@@ -12,21 +47,49 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg,#0a0a0a,#3a4452);
+    background: var(--bg-gradient);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 360px;
+    margin-bottom: 15px;
 }
 
 h1{
-    color: #ffffff;
+    color: var(--text-color);
     text-align: center;
-    margin-bottom: 20px;
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--toggle-border);
+    background: var(--toggle-bg);
+    color: var(--toggle-text);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    outline: none;
+}
+
+.theme-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
 }
 
 .calculator{
-    border:1px solid #717377;
+    border:1px solid var(--calculator-border);
     padding: 20px;
     border-radius: 16px;
-    background:transparent;
-    box-shadow: 0px 3px 15px rgba(113,225,119,0.5);
+    background: var(--calculator-bg);
+    box-shadow: var(--calculator-shadow);
 }
 
 #inputBox{
@@ -35,35 +98,45 @@ h1{
     padding: 24px;
     margin: 10px;
     background: transparent;
-    box-shadow: 0px 3px 15px rgba(84,84,84,0.1);
+    box-shadow: var(--input-shadow);
     font-size:40px;
     text-align: right;
     cursor: pointer;
-    color:white;
+    color: var(--text-color);
+    border-radius: 8px;
 }
 
 input::placeholder{
-    color: #ffffff;
+    color: var(--text-color);
+    opacity: 0.6;
 }
 
-button{
+.calculator button{
     border:none;
     width:60px;
     height:60px;
     margin:10px;
     border-radius:50%;
-    background:transparent;
-    color:#ffffff;
+    background: var(--btn-bg);
+    color: var(--btn-color);
     font-size:20px;
-    box-shadow:-8px -8px 15px rgba(255, 255, 255,0.1);
+    box-shadow: var(--btn-shadow);
     cursor:pointer;
 }
 
+.calculator button:hover {
+    transform: translateY(-2px);
+}
+
+.calculator button:active {
+    transform: translateY(1px);
+}
+
 .equalBtn{
-    background-color: orangered;
+    background-color: var(--equal-bg) !important;
+    color: #ffffff !important;
 }
 
 .operator{
-    color: green;
-
+    color: var(--operator-color) !important;
 }

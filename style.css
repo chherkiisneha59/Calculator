@@ -108,6 +108,7 @@ h1{
     cursor: pointer;
     color: var(--text-color);
     border-radius: 8px;
+    transition: font-size 0.2s ease;
 }
 
 input::placeholder{

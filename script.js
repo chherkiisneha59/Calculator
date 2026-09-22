@@ -40,7 +40,19 @@ let isError = false;
 const isOperator = (char) => ['+', '-', 'x', '*', '/', '%'].includes(char);
 
 function updateDisplay(val) {
-    input.value = val !== "" ? val : "0";
+    let displayVal = val !== "" ? val : "0";
+    input.value = displayVal;
+
+    // Dynamically shrink font size for long text / error messages so it never gets cut off
+    if (displayVal.length > 14) {
+        input.style.fontSize = "20px";
+    } else if (displayVal.length > 10) {
+        input.style.fontSize = "25px";
+    } else if (displayVal.length > 7) {
+        input.style.fontSize = "30px";
+    } else {
+        input.style.fontSize = "40px";
+    }
 }
 
 function handleInput(btnText) {

@@ -9,14 +9,14 @@
 </head>
 
 <body>
-    <div class="header-container">
+    <button id="themeToggle" class="theme-btn" title="Toggle Light/Dark Mode">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText">Light</span>
+    </button>
+
+    <div class="calculator-wrapper">
         <h1>Calculator</h1>
-        <button id="themeToggle" class="theme-btn" title="Toggle Light/Dark Mode">
-            <span id="themeIcon">☀️</span>
-            <span id="themeText">Light</span>
-        </button>
-    </div>
-    <div class="calculator">
+        <div class="calculator">
 
         <input type="text" placeholder="0" id="inputBox">
 
@@ -54,6 +54,7 @@
             <button>.</button>
             <button class="equalBtn">=</button>
         </div>
+    </div>
     </div>
 
     <script src="script.js"></script>
